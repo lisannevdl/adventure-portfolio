@@ -1,0 +1,440 @@
+h1 {
+    color: $primary;
+    font-weight: 300;
+    margin-bottom: 20px;
+
+    @include media-breakpoint-down(sm) {
+        font-size: 32px;
+    }
+}
+
+h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    margin-bottom: 15px;
+}
+
+h6 {
+    font-weight: 300;
+}
+
+.title {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+
+    h6 {
+        max-width: 540px;
+        margin: 0 auto;
+    }
+}
+
+.modal.show {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    .modal-header {
+        border-color: darken($body-bg, 10%);
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        h5 {
+            text-transform: uppercase;
+            letter-spacing: 0.25rem;
+        }
+    }
+
+    .modal-content {
+        background: $body-bg;
+        border-radius: 0;
+    }
+}
+
+button.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    padding: 0 5px;
+    cursor: pointer;
+    background: darken($body-bg, 10%);
+    border: none;
+    border-bottom: 5px darken($body-bg, 10%) solid;
+
+    &:hover .leftright{
+        transform: rotate(-45deg);
+        background-color: $primary;
+    }
+
+    &:hover .rightleft{
+        transform: rotate(45deg);
+        background-color: $primary;
+    }
+
+    .leftright{
+        height: 4px;
+        width: 40px;
+        position: absolute;
+        background-color: #fff;
+        border-radius: 2px;
+        transform: rotate(45deg);
+        transition: all .3s ease-in;
+    }
+    
+    .rightleft{
+        height: 4px;
+        width: 40px;
+        position: absolute;
+        background-color: #fff;
+        border-radius: 2px;
+        transform: rotate(-45deg);
+        transition: all .3s ease-in;
+    }
+}
+
+section {
+    position: relative;
+    background-color: $body-bg;
+    padding: 100px 0 0 0;
+}
+
+#parallax-container {
+    display: block;
+    height: 100vh;
+
+    @include media-breakpoint-down(sm) {
+        display: none;
+    }
+
+  .parallax-element {
+    position: fixed;
+    top: 0;
+    background-position: center;
+    background-size: auto 1030px;
+    transform: translateY(0px);
+    height: 100vh;
+    width: 100%;
+
+    &:last-child {
+        background-position: bottom;
+    }
+  }
+}
+
+.story {
+    padding: 0;
+    text-align: justify;
+    position: relative;
+
+    .woods {
+        background: url(/img/woods.png) bottom center no-repeat;
+        height: 974px;
+
+        @include media-breakpoint-down(sm) {
+            background-size: 200%;
+            height: 400px;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 400px;
+        @include gradient-y($body-bg, transparent, 30%, 100%);
+
+        @include media-breakpoint-down(sm) {
+            height: 100px;
+        }
+    }
+
+    .waterfall {
+        padding: 100px 0;
+        background: url(/img/waterfall.png) top center no-repeat;
+
+        @include media-breakpoint-down(sm) {
+            background: none;
+        }
+    }
+}
+
+.training-grounds {
+    height: 1191px;
+    background-image: url(/img/waterfall/waterfall-end.png);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+
+    .training-timeline {
+        .year {
+            font-size: 20px;
+            min-width: 108px;
+            margin-top: 15px;
+
+            @include media-breakpoint-down(sm) {
+                min-width: 47px;
+                font-size: 16px;
+            }
+        }
+
+        .timeline {
+            border-left: 3px solid $body-bg;
+            padding: 15px 0 15px 20px;
+            margin-left: 20px;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 22px;
+                left: -9px;
+                width: 15px;
+                height: 15px;
+                border-radius: 15px;
+                background: $primary;
+            }
+
+            .education {
+                font-size: 20px;
+                color: $primary;
+            }
+
+            .school {
+                color: $gray-500;
+            }
+
+            .description {
+                margin-top: 20px;
+            }
+        }
+    }
+
+    .training-details {
+        margin-top: 20px;
+
+        .minors {
+            margin-bottom: 20px;
+        }
+
+        .experience-earned {
+            img {
+                width: 35px;
+                margin: 5px 10px 0 0;
+            }
+        }
+       
+    }
+}
+
+.guilds {
+    padding: 50px 0 30px 0;
+
+    .guild {
+
+
+        .guild-name {
+            border-right: 1px solid $body-color;
+            margin-right: 40px;
+            padding: 10px 40px 10px 25px;
+
+            @include media-breakpoint-down(sm) {
+                border-right: none;
+                padding: 10px 0 10px 25px;
+                margin-right: 0;
+            }
+            
+            .name {
+                font-size: 30px;
+                line-height: 30px;
+            }
+
+            .location {
+                font-size: 18px;
+                font-weight: 300;
+            }
+        }
+
+        .guild-info {
+            padding: 16px 0;
+
+            @include media-breakpoint-down(sm) {
+                display: none;
+            }
+
+            .members {
+                line-height: 22px;
+
+                img {
+                    margin: -3px 5px 0 0;
+                    width: 20px;
+                }
+            }
+           
+        }
+
+        .title {
+            margin: 0 0 5px 0;
+        }
+
+        .member-info {
+            margin-top: 50px;
+
+            .title {
+                margin-right: 20px;
+            }
+            
+            .guild-rank {
+                @include media-breakpoint-up(sm) {
+                    margin-right: 70px;
+                }
+            }
+        }
+
+        .description {
+            margin-top: 50px;
+
+            @include media-breakpoint-down(sm) {
+                margin-top: 20px;
+            }
+        }
+
+        .exp {
+            margin-top: 30px;
+
+            @include media-breakpoint-down(sm) {
+                margin-top: 20px;
+            }
+
+            img {
+                width: 35px;
+                margin: 5px 10px 0 0;
+            }
+        }
+
+        .achievements {
+            margin-top: 50px;
+
+            @include media-breakpoint-down(sm) {
+                margin-top: 20px;
+            }
+
+            ul {
+                padding: 0 0 0 18px;
+            }
+        }
+    }
+
+    .timeline {
+        height: 3px;
+        background: $secondary;
+        margin: 50px 0 50px 0;
+        position: relative;
+
+        .timeline-active {
+            height: 3px;
+            left: 0;
+            width: 0;
+            position: absolute;
+            background-color: $primary;
+            transition: width 0.5s, left 0.5s;
+
+        }
+
+        @include media-breakpoint-down(sm) {
+            div:nth-child(3) {
+                left: 20%!important;
+            }
+
+            div:nth-child(4) {
+                left: 40%!important;
+            }
+
+            div:nth-child(5) {
+                left: 60%!important;
+            }
+
+            div:nth-child(6) {
+                left: 80%!important;
+            }
+        }
+
+        .event {
+            position: absolute;
+            bottom: 0;
+            z-index: 2;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            padding-bottom: 18px;
+            line-height: 20px;
+            text-transform: uppercase;
+            max-width: 50px;
+            transform: translateX(-50%);
+
+            @include media-breakpoint-down(md) {
+                font-size: 13px;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                right: auto;
+                -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+                bottom: -6px;
+                height: 15px;
+                width: 15px;
+                border-radius: 50%;
+                background-color: $secondary;
+                transition: background-color 0.3s;
+            }
+
+            &.active {
+                &::after {
+                    background-color: $primary;
+                }
+            }
+        }
+    }
+}
+
+.chat {
+    background: #7ec8e3;
+    padding: 0 0 0 0;
+    color: #fff;
+
+    label {
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    h1 {
+        color: $secondary;
+    }
+
+    .contact-info {
+        margin-bottom: 20px;
+    }
+
+    .social-icon {
+        display: inline-block;
+        margin-right: 10px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .contact-info-title {
+        font-weight: 600;
+        font-size: 20px;
+        text-transform: uppercase;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}

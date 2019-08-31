@@ -1,0 +1,299 @@
+
+.skills {
+    height: 900px;
+
+
+    @include media-breakpoint-down(md) {
+        height: auto;
+    }
+
+    .skill-tree {
+        display: inline-block;
+
+
+        @include media-breakpoint-between(sm,md) {
+            width: 100%;
+            padding-left: 60px;
+        }
+
+        @include media-breakpoint-down(sm) {
+            padding-left: calc((100vw - 320px) / 2);
+        }
+    }
+
+    .skill-row {
+        margin-bottom: 30px;
+
+        .skill-icon {
+            width: 120px;
+            position: relative;
+            margin-right: 30px;
+
+            @include media-breakpoint-down(sm) {
+                width: 50px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+
+            img {
+                position: relative;
+                z-index: 2;
+            }
+
+            &::before {
+                position: absolute;
+                background: #c4c4c4;
+                width: 6px;
+                height: 34px;
+                bottom: -32px;
+                left: 57px;
+
+                @include media-breakpoint-down(sm) {
+                    width: 3px;
+                    left: 24px;
+                }    
+            }
+
+            &.skill-html::before, &.skill-css::before, &.skill-photoshop::before, &.skill-illustrator::before {
+                content: "";
+            }
+
+            &.skill-javascript::before {
+                content: "";
+                bottom: -206px;
+                height: 208px;
+
+                @include media-breakpoint-down(sm) {
+                    height: 120px;
+                    bottom: -120px;
+                }
+            }
+
+            &.skill-angularjs::before {
+                content: "";
+                bottom: initial;
+                top: -20px;
+                left: -92px;
+                height: 6px;
+                width: 300px;
+
+
+                @include media-breakpoint-down(sm) {
+                    height: 3px;
+                    left: -56px;
+                    width: 162px;
+                }    
+            }
+
+            &.skill-webdesign::before {
+                content: "";
+                bottom: initial;
+                top: -20px;
+                left: 57px;
+                height: 6px;
+                width: 156px;
+
+                @include media-breakpoint-down(sm) {
+                    height: 3px;
+                    left: 25px;
+                    width: 81px;
+                }    
+            }
+
+            &.skill-vue::before, &.skill-react::before, &.skill-uidesign::before {
+                content: "";
+                bottom: initial;
+                top: -20px;
+                height: 22px;
+            }
+
+            &.skill-bootstrap, &.skill-photoshop  {
+                margin-right: 180px;
+
+                @include media-breakpoint-down(sm) {
+                    margin-right: 110px;
+                }
+            }
+    
+            &.active::after {
+                content:"";
+                width: 128px;
+                height: 148px;
+                background: url(/img/skills/border.svg);
+                position: absolute;
+                top: -5px;
+                left: -4px;
+
+                @include media-breakpoint-down(sm) {
+                    width: 58px;
+                    height: 67px;
+                }    
+            }
+
+            &.active.unearned::after {
+                background: url(/img/skills/border-unearned.svg);
+            }
+        } 
+    }
+
+    .skill-tree-nav {
+        font-size: 20px;
+        text-transform: uppercase;
+        margin-bottom: 50px;
+        text-align: center;
+
+        .skill-nav {
+            display: inline-block;
+            width: 150px;
+            color: $secondary;
+            cursor: pointer;
+
+            &:hover {
+                color: $primary;
+            }
+
+            &.active {
+                color: #fff;
+                font-weight: 500;
+                position: relative;
+
+                &::after {
+                    content:"";
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    background: #fff;
+                    left: 0; 
+                    bottom: -5px;
+                }
+            }
+
+            &.front-end {
+                margin-left: -20px;
+            }
+        }
+    }
+
+    .skill-details {
+        .codesnippet-block {
+            background: #10242c;
+            height: 220px;
+            margin-bottom: 25px;
+            padding: 35px 20px 0 20px;
+            font-size: 13px;
+
+            &:after{
+                content: "|";
+                animation: blink 500ms linear infinite alternate;
+            }
+
+
+            @include media-breakpoint-between(sm,md) {
+                width: 50%;
+                float: left;
+            }
+        }
+
+        .icon-container {
+            background: #10242c;
+            height: 220px;
+            margin-bottom: 25px;
+            padding: 35px 20px 35px 20px;
+            font-size: 13px;
+
+            img {
+                max-height: 100%;
+            }
+
+
+            @include media-breakpoint-between(sm,md) {
+                width: 50%;
+                float: left;
+            }
+        }
+
+        .skill-info {
+            @include media-breakpoint-between(sm,md) {
+                width: 50%;
+                padding-left: 30px;
+                float: left;
+            }
+        }
+
+        .main-skill {
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .skill-type {
+            color: $gray-500;
+            line-height: 36px;
+        }
+
+        .skill-description {
+            text-align: justify;
+        }
+
+        .skill-exp {
+            margin-top: 20px;
+            text-transform: uppercase;
+            background: #173541;
+            padding: 5px 10px;
+
+            .points {
+                position: relative;
+
+                &::before {
+                    content: "XP";
+                    width: 20px;
+                    height: 20px;
+                    background: $primary;
+                    border-radius: 100%;
+                    position: absolute;
+                    left: -25px;
+                    top: 0;
+                    color: #fff;
+                    text-align: center;
+                    font-size: 12px;
+                    line-height: 20px;
+                }
+            }
+        }
+
+        .upgrade {
+            border-top: 1px solid $secondary;
+            padding: 30px 0 0 0;
+
+            h5 {
+                margin-bottom: 20px;
+            }
+
+            .skill-type {
+                line-height: 25px;
+            }
+        }
+    }
+}
+
+
+
+@-webkit-keyframes blink{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
+}
+
+@-moz-keyframes blink{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
+}
+
+@keyframes blink{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
+}
