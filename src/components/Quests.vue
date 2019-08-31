@@ -40,7 +40,7 @@
                         <h5 class="modal-title">{{ activeQuest.name }}</h5>
                         <a class="btn btn-secondary" v-if="activeQuest.link" :href="activeQuest.link" target="_blank">Preview</a>
                     </div>
-                    <img :src="`/img/quests/${activeQuest.thumb}.jpg`" class="img-fluid">
+                    <img :src="`/img/quests/${activeQuest.image}`" class="img-fluid">
                     <div class="modal-body">
                         <div class="notice" v-if="activeQuest.notice">{{ activeQuest.notice }}</div>
                         <div class="row">
@@ -78,6 +78,7 @@ export default {
                 {
                     name: 'Infinite Backlog',
                     thumb: 'ib',
+                    image: 'ib.png',
                     col: 'col-md-12',
                     link: 'https://www.infinitebacklog.nl',
                     notice: 'In active development - currently in its pre-alpha stage getting ready to be tested by select users',
@@ -92,6 +93,7 @@ export default {
                 {
                     name: 'Kentalis Leeshuis',
                     thumb: 'kentalis',
+                    image: 'kentalis.png',
                     col: 'col-md-6',
                     link: 'http://www.kentalisleeshuis.nl/leeshuis/',
                     description: 'An interactive website that gives parents tips and ideas about activities to stimulate the reading development of children with an auditory disability. Using this website parents can help their kids with reading development in a fun and playful way.',
@@ -105,7 +107,9 @@ export default {
                 {
                     name: 'Plaza',
                     thumb: 'plaza',
+                    image: 'plaza.png',
                     col: 'col-md-6',
+                    description: 'A responsive management environment for the BasisOnline Ouderportaal and Intranet with a completely new and improved intuitive UI and faster routing to key functionalities.',
                     info: {
                         Questgiver: 'BasisOnline',
                         Guild: 'BasisOnline',
@@ -116,6 +120,7 @@ export default {
                 {
                     name: 'Ouderportaal App',
                     thumb: 'ouderportaal',
+                    image: 'ouderportaal.png',
                     col: 'col-md-4',
                     link: 'https://apps.apple.com/nl/app/basisonline-ouderportaal/id952670599',
                     description: 'An intuitive, fast, cross-platform hybrid mobile app to support the BasisOnline Ouderportaal that facilitates two-way school-parent communication. Depending on the login profile, the app has various functionalities per module for parent or teacher.',
@@ -130,6 +135,8 @@ export default {
                     name: 'Kievietschool',
                     year: '2018',
                     thumb: 'kieviet',
+                    image: 'kieviet.png',
+                    description: 'Along with a fresh identity and some quirky birds, this new responsive website highlights the way the school supports its students in in the learning process, with all information for (new) parents are available at a glance.',
                     link: 'http://www.kievietschool.nl/',
                     col: 'col-md-6',
                     info: {
@@ -143,6 +150,7 @@ export default {
                     name: 'Insite',
                     year: '2014 - 2015',
                     thumb: 'insite',
+                    image: 'insite.png',
                     col: 'col-md-6',
                     description: 'A CRM and project management tool developed by and for Phoenix Designs. It\'s mainly used to keep track of all customer information and projects as well as the development of our products and its inevitable bugs.',
                     info: {
