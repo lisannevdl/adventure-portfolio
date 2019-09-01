@@ -105,10 +105,14 @@ export default {
                     founded: '2008',
                     rank: 'Web Design Intern',
                     active: 'February 2013 - July 2013',
-                    description: '',
+                    description: 'The core business of Laméco is to make and keep organisations online successful by guiding them to new opportunities with knowledge, insight and a lot of love for their profession.',
                     achievements: [
-                        '',
-                        
+                        'Wrote a thesis on user experience and user interface design',
+                        'Held a customer survey to get insight into the cons and pros of the current CMS',
+                        'Interviewed developers and users about current and possible functionalities',
+                        'Held usability tests among new users',
+                        'Designed a new, fully user-focussed CMS based on research findings',
+                        'Helped with various design and development tasks'
                     ],
                     exp: ['HTML', 'CSS', 'Bootstrap', 'Photoshop', 'WebDesign', 'UIDesign', 'Usability']
                 },
@@ -122,10 +126,13 @@ export default {
                     founded: '1999',
                     rank: 'Front-end Intern',
                     active: 'August 2011 - February 2012',
-                    description: '',
+                    description: 'ISAAC is absolutely crazy about internet and this is expressed by the passion with which they work on web and software solutions, specialising in commerce, finance, integration and innovation.',
                     achievements: [
-                        '',
-                        
+                        'Helped with various web design and development projects',
+                        'Did marketing research on developers to determine how to set up a crossmedia campaign',
+                        'Designed and developed a landingspage for the campaign',
+                        'Sketched storyboards for a viral video',
+                        'Wrote a social media campaign plan'
                     ],
                     exp: ['HTML', 'CSS', 'Photoshop', 'WebDesign', 'Usability']
                 }

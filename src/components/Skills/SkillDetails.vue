@@ -2,7 +2,7 @@
     <div class="col-md-12 col-lg-4 skill-details">
         <app-code-snippet :snippet="activeSkill.script" v-if="activeSkill.script"></app-code-snippet>
         <div class="icon-container" v-if="!activeSkill.script">
-            <img :src="`/img/skills/${activeSkill.name.replace(/\s/g, '')}.svg`" class="img-fluid">
+            <img :src="`/img/skills/${activeSkill.name.replace(/\s/g, '').toLowerCase()}.svg`" class="img-fluid">
         </div>
         <div class="skill-info">
             <div class="main-skill">

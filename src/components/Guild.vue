@@ -25,7 +25,7 @@
                 </div>
                 <div class="exp">
                     <div class="title">Experience earned</div>
-                    <img v-for="exp in guild.exp" :src="`/img/skills/${exp}.svg`" :key="exp">
+                    <img v-for="exp in guild.exp" :src="`/img/skills/${exp.toLowerCase()}.svg`" :key="exp">
                 </div>
             </div>
             <div class="col-md-6 achievements">

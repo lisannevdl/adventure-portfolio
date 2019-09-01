@@ -15,7 +15,7 @@
                         </nav>
                         <div class="skill-row d-flex" v-for="(skillrow, index) in skills[activeTree]" :key="index">
                             <div class="skill-icon" :class="[{ active: activeSkill === skill, unearned: !skill.earned}, `skill-${skill.name.toLowerCase().replace(/\s/g, '')}` ]" v-for="skill in skillrow" :key="skill.name" @mouseover="activeSkill = skill">
-                                <img :src="`/img/skills/${skill.name.replace(/\s/g, '')}.svg`" class="img-fluid">
+                                <img :src="`/img/skills/${skill.name.replace(/\s/g, '').toLowerCase()}.svg`" class="img-fluid">
                             </div>
                         </div>
                     </div>

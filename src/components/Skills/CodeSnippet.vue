@@ -13,7 +13,8 @@ export default {
             typedSnippet: '',
             cursorPosition: 0,
 	        typeSpeed: 10,
-            tempTypeSpeed: 0
+            tempTypeSpeed: 0,
+            timeOut: null
         }
     },
     watch: {
@@ -29,7 +30,9 @@ export default {
             this.typedSnippet = '';
             this.cursorPosition = 0;
             this.tempTypeSpeed = 0;
+            if(this.timeOut) window.clearTimeout(this.timeOut);
             this.typeCodeSnippet();
+
         },
         typeCodeSnippet() {
             if (this.snippet[this.cursorPosition] === " ") {
@@ -39,12 +42,13 @@ export default {
             }
 
             this.typedSnippet += this.snippet[this.cursorPosition];
-
             this.cursorPosition += 1;
             
 	        if (this.cursorPosition < this.snippet.length) {
-	            setTimeout(this.typeCodeSnippet, this.tempTypeSpeed);
-	        }
+                this.timeOut = setTimeout(this.typeCodeSnippet, this.tempTypeSpeed);
+            } else {
+                this.timeOut = null;
+            }
         }
     }
 }

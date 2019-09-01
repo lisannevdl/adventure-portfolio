@@ -9,7 +9,7 @@
             </header>
             <div class="row">
                 <div class="col-md-7 col-lg-6 offset-lg-1">
-                    <form class="row">
+                    <form class="row" v-if="!messageSent">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="formName">Name</label>
@@ -30,6 +30,10 @@
                             <button type="submit" class="btn btn-secondary" @click.prevent="sendMail">Send</button>
                         </div>
                     </form>
+                    <div class="sent" v-else>
+                        <div class="title">Message sent</div>
+                        Thanks for your message, I'll get back to you as soon as possible!
+                    </div>
                 </div>
                 <div class="col-md-4 offset-md-1"> 
                     <div class="contact-info-title d-md-none">Contact Info</div>
@@ -55,17 +59,19 @@ export default {
         return {
             name: '',
             mail: '',
-            message: ''
+            message: '',
+            messageSent: false
         }
     },
     methods: {
-        sendMail() {
+        async sendMail() {
             const jsonData = { name: this.name, email: this.mail, message: this.message };
             const formattedJsonData = JSON.stringify(jsonData);
 
             const newXHR = new XMLHttpRequest();
-            newXHR.open( 'POST', '/functions/sendContact.php' );
-            newXHR.send(formattedJsonData);
+            newXHR.open('POST', '/sendContact.php');
+            await newXHR.send(formattedJsonData);
+            this.messageSent = true;
         }
     }
 }
