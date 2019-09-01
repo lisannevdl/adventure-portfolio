@@ -13,21 +13,21 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="formName">Name</label>
-                                <input type="text" class="form-control" id="formName" placeholder="Name">
+                                <input type="text" class="form-control" name="name" id="formName" placeholder="Name" v-model="name" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="formEmail">Email address</label>
-                                <input type="email" class="form-control" id="formEmail" placeholder="E-mail">
+                                <input type="email" class="form-control" name="email" id="formEmail" placeholder="E-mail" v-model="mail" required>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="formMessage">Message</label>
-                                <textarea class="form-control" id="formMessage" placeholder="Message"></textarea>
+                                <textarea class="form-control" id="formMessage" name="message" placeholder="Message" v-model="message" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-secondary">Send</button>
+                            <button type="submit" class="btn btn-secondary" @click.prevent="sendMail">Send</button>
                         </div>
                     </form>
                 </div>
@@ -48,3 +48,25 @@
         <img src="/img/floor.png" class="img-fluid">
     </section>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            name: '',
+            mail: '',
+            message: ''
+        }
+    },
+    methods: {
+        sendMail() {
+            const jsonData = { name: this.name, email: this.mail, message: this.message };
+            const formattedJsonData = JSON.stringify(jsonData);
+
+            const newXHR = new XMLHttpRequest();
+            newXHR.open( 'POST', '/functions/sendContact.php' );
+            newXHR.send(formattedJsonData);
+        }
+    }
+}
+</script>
