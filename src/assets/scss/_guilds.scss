@@ -181,6 +181,7 @@
             text-transform: uppercase;
             max-width: 50px;
             transform: translateX(-50%);
+            cursor: pointer;
 
             @include media-breakpoint-down(md) {
                 font-size: 13px;
@@ -201,10 +202,14 @@
                 transition: background-color 0.3s;
             }
 
-            &.active {
+            &.active, &:hover {
                 &::after {
                     background-color: $primary;
                 }
+            }
+
+            &:hover {
+                color: $primary;
             }
         }
     }

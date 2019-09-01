@@ -10,7 +10,7 @@
                 <div class="col-md-10 offset-md-1">
                     <div class="timeline">
                         <div class="timeline-active" :class="guild.logo" :style="guild.style" v-if="guild"></div>
-                        <div class="event" :class="{ active : guild === guilds[0] || guild === guilds[2] }">Now</div>
+                        <div class="event" :class="{ active : guild === guilds[0] || guild === guilds[2] }" @click="guild = guilds[0]">Now</div>
                         <div class="event" v-for="event in guilds" :key="event.date" 
                         :style="event.timelineSpot" :class="{ active : event === guild }"
                         @click="guild = event">{{ event.date }}</div>
