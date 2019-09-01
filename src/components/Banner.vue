@@ -2,6 +2,7 @@
     <section id="parallax-container">
         <div class="parallax-element" v-for="(banner, index) in 9" 
             :key="banner" :style="`background-image:url(/img/banner-${index}.png)`">
+            <img src="../assets/images/logo.svg" class="logo" v-if="index === 1">
         </div>
     </section>
 </template>

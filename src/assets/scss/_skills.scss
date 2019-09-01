@@ -2,9 +2,12 @@
 .skills {
     height: 900px;
 
-
     @include media-breakpoint-down(md) {
         height: auto;
+    }
+
+    @include media-breakpoint-down(sm) {
+        padding-top: 20px;
     }
 
     .skill-tree {

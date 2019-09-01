@@ -9,49 +9,13 @@
             <div class="row">
                 <div class="col-md-10 offset-md-1">
                     <div class="timeline">
-                        <div class="timeline-active" :style="guild.style" v-if="guild"></div>
+                        <div class="timeline-active" :class="guild.logo" :style="guild.style" v-if="guild"></div>
                         <div class="event" :class="{ active : guild === guilds[0] || guild === guilds[2] }">Now</div>
                         <div class="event" v-for="event in guilds" :key="event.date" 
                         :style="event.timelineSpot" :class="{ active : event === guild }"
                         @click="guild = event">{{ event.date }}</div>
                     </div>
-                    <div class="guild" v-if="guild">
-                        <div class="guild-header d-flex justify-content-center">
-                            <div class="logo"><img :src="`/img/guilds/${guild.logo}.png`"></div>
-                            <div class="guild-name">
-                                <div class="name">{{ guild.name }}</div>
-                                <div class="location">{{ guild.location }}</div>
-                            </div>
-                            <div class="guild-info">
-                                <div class="members"><img src="../assets/images/account-group.svg"> {{ guild.members }} members</div>
-                                <div class="founded">Founded in {{ guild.founded }}</div>
-                            </div>
-                        </div>
-                        <div class="member-info d-flex justify-content-center">
-                            <div class="title">Guild rank</div>
-                            <div class="guild-rank">{{ guild.rank }}</div>
-                            <div class="title">Active during</div>
-                            <div class="guild-active">{{ guild.active }}</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="description">
-                                    <div class="title">Guild description</div>
-                                    <div class="desc">{{ guild.description }}</div>
-                                </div>
-                                <div class="exp">
-                                    <div class="title">Experience earned</div>
-                                    <img v-for="exp in guild.exp" :src="`/img/skills/${exp}.svg`" :key="exp">
-                                </div>
-                            </div>
-                            <div class="col-md-6 achievements">
-                                <div class="title">Achievements</div>
-                                <ul>
-                                    <li v-for="achievement in guild.achievements" :key="achievement">{{ achievement }}</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <app-guild v-if="guild" :guild="guild"></app-guild>
                 </div>
             </div>
         </div>
@@ -59,7 +23,12 @@
 </template>
 
 <script>
+import Guild from '@/components/Guild.vue'
+
 export default {
+    components: {
+        appGuild: Guild
+    },
     data() {
         return {
             guild: null,
@@ -67,7 +36,6 @@ export default {
                 {
                     date: '2018',
                     timelineSpot: 'left: 10%;',
-                    style: 'width: 10%; left: 0;',
                     name: 'Langdon Systems',
                     logo: 'langdon',
                     location: 'Eindhoven',
@@ -88,7 +56,6 @@ export default {
                 {
                     date: 'OCT 2013',
                     timelineSpot: 'left: 60%;',
-                    style: 'width: 50%; left: 10%;',
                     name: 'BasisOnline',
                     logo: 'basisonline',
                     location: 'Veldhoven',
@@ -111,7 +78,6 @@ export default {
                 {
                     date: 'JUL 2013',
                     timelineSpot: 'left: 65%;',
-                    style: 'width: 65%; left: 0%;',
                     name: 'Phoenix Designs',
                     logo: 'phoenix',
                     location: 'Nuenen',
@@ -132,7 +98,6 @@ export default {
                 {
                     date: 'FEB 2013',
                     timelineSpot: 'left: 70%;',
-                    style: 'width: 5%; left: 65%;',
                     name: 'Laméco',
                     logo: 'lameco',
                     location: 'Eindhoven',
@@ -150,7 +115,6 @@ export default {
                 {
                     date: '2011',
                     timelineSpot: 'right: 0; transform: translateX(50%);',
-                    style: 'width: 5%; left: 95%;',
                     name: 'ISAAC',
                     logo: 'isaac',
                     location: 'Eindhoven',

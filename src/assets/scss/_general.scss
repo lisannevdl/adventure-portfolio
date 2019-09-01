@@ -103,27 +103,45 @@ section {
     padding: 100px 0 0 0;
 }
 
+.logo {
+    width: 300px;
+    max-width: 100%;
+    margin-top: 80px;
+
+}
+
 #parallax-container {
     display: block;
     height: 100vh;
 
-    @include media-breakpoint-down(sm) {
-        display: none;
+    .parallax-element {
+        position: fixed;
+        top: 0;
+        background-position: center;
+        background-size: auto 1030px;
+        transform: translateY(0px);
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+      
+        &:last-child {
+            background-position: bottom;
+        }
     }
+}
 
-  .parallax-element {
-    position: fixed;
-    top: 0;
-    background-position: center;
-    background-size: auto 1030px;
-    transform: translateY(0px);
+.mobile-banner {
+    padding: 0;
     height: 100vh;
     width: 100%;
+    background: #7bcae7 url(../images/banner.png) center bottom no-repeat;
+    text-align: center;
 
-    &:last-child {
-        background-position: bottom;
+    .logo {
+        @media (max-height: 570px) { 
+            margin-top: 40px;
+         }
     }
-  }
 }
 
 .story {
@@ -167,9 +185,14 @@ section {
 
 .training-grounds {
     height: 1191px;
-    background-image: url(/img/waterfall/waterfall-end.png);
+    background-image: url(/img/waterfall-end.png);
     background-position: bottom center;
     background-repeat: no-repeat;
+
+    @include media-breakpoint-down(sm) {
+        height: 1015px;
+        background-image: url(/img/waterfall-end-mobile.png);
+    }
 
     .training-timeline {
         .year {
@@ -229,179 +252,6 @@ section {
             }
         }
        
-    }
-}
-
-.guilds {
-    padding: 50px 0 30px 0;
-
-    .guild {
-
-
-        .guild-name {
-            border-right: 1px solid $body-color;
-            margin-right: 40px;
-            padding: 10px 40px 10px 25px;
-
-            @include media-breakpoint-down(sm) {
-                border-right: none;
-                padding: 10px 0 10px 25px;
-                margin-right: 0;
-            }
-            
-            .name {
-                font-size: 30px;
-                line-height: 30px;
-            }
-
-            .location {
-                font-size: 18px;
-                font-weight: 300;
-            }
-        }
-
-        .guild-info {
-            padding: 16px 0;
-
-            @include media-breakpoint-down(sm) {
-                display: none;
-            }
-
-            .members {
-                line-height: 22px;
-
-                img {
-                    margin: -3px 5px 0 0;
-                    width: 20px;
-                }
-            }
-           
-        }
-
-        .title {
-            margin: 0 0 5px 0;
-        }
-
-        .member-info {
-            margin-top: 50px;
-
-            .title {
-                margin-right: 20px;
-            }
-            
-            .guild-rank {
-                @include media-breakpoint-up(sm) {
-                    margin-right: 70px;
-                }
-            }
-        }
-
-        .description {
-            margin-top: 50px;
-
-            @include media-breakpoint-down(sm) {
-                margin-top: 20px;
-            }
-        }
-
-        .exp {
-            margin-top: 30px;
-
-            @include media-breakpoint-down(sm) {
-                margin-top: 20px;
-            }
-
-            img {
-                width: 35px;
-                margin: 5px 10px 0 0;
-            }
-        }
-
-        .achievements {
-            margin-top: 50px;
-
-            @include media-breakpoint-down(sm) {
-                margin-top: 20px;
-            }
-
-            ul {
-                padding: 0 0 0 18px;
-            }
-        }
-    }
-
-    .timeline {
-        height: 3px;
-        background: $secondary;
-        margin: 50px 0 50px 0;
-        position: relative;
-
-        .timeline-active {
-            height: 3px;
-            left: 0;
-            width: 0;
-            position: absolute;
-            background-color: $primary;
-            transition: width 0.5s, left 0.5s;
-
-        }
-
-        @include media-breakpoint-down(sm) {
-            div:nth-child(3) {
-                left: 20%!important;
-            }
-
-            div:nth-child(4) {
-                left: 40%!important;
-            }
-
-            div:nth-child(5) {
-                left: 60%!important;
-            }
-
-            div:nth-child(6) {
-                left: 80%!important;
-            }
-        }
-
-        .event {
-            position: absolute;
-            bottom: 0;
-            z-index: 2;
-            text-align: center;
-            font-size: 18px;
-            font-weight: 600;
-            padding-bottom: 18px;
-            line-height: 20px;
-            text-transform: uppercase;
-            max-width: 50px;
-            transform: translateX(-50%);
-
-            @include media-breakpoint-down(md) {
-                font-size: 13px;
-            }
-
-            &::after {
-                content: "";
-                position: absolute;
-                left: 50%;
-                right: auto;
-                -webkit-transform: translateX(-50%);
-                transform: translateX(-50%);
-                bottom: -6px;
-                height: 15px;
-                width: 15px;
-                border-radius: 50%;
-                background-color: $secondary;
-                transition: background-color 0.3s;
-            }
-
-            &.active {
-                &::after {
-                    background-color: $primary;
-                }
-            }
-        }
     }
 }
 
